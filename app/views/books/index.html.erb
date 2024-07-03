@@ -1,0 +1,11 @@
+<%= form_with model: @list, url: '/lists', method: :post do |f| %>
+
+  <p>Title</p>
+  <%= f.text_field :title %>
+
+  <p>Body</p>
+  <%= f.text_area :body %>
+    <br>
+  <%= f.submit 'Create Books' %>
+
+<% end %>
