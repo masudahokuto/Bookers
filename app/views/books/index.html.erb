@@ -17,26 +17,30 @@
         <td><%= book.title %></td>
         <td><%= book.body %></td>
         <td>
-          <a href="/books/show">show</a>
-          <a href="/books/1/edit">edit</a>
-          <!-- ここにdelete入れるはず -->
-        </td>
+      <%= link_to 'Show', book_path(book) %>
+    </td>
+    <td>
+      <%= link_to 'Edit', edit_book_path(book) %>
+    </td>
+    <td>
+      <%= link_to 'Destroy', book_path(book), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+    </td>
       </tr>
     </tbody>
   <% end %>
 </table>
 
-<!--Are you sure?-->
 <h2>New book</h2>
-</body>
+  <div id="error_explanation">
+    <%= flash[:alert] %>
+  </div>
+  <%= form_with model: @book, url: '/books', method: :post do |f| %>
 
-<%= form_with model: @book, url: '/books', method: :post do |f| %>
-
-  <p>Title</p>
+  <label>Title</label>
   <p><%= f.text_field :title %></p>
 
-  <p>Body</p>
+  <label>Body</label>
   <p><%= f.text_area :body %></p>
   <p><%= f.submit 'Create Books' %></p>
-
+</body>
 <% end %>

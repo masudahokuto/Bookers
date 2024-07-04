@@ -1,11 +1,18 @@
+<div>
+  <%= flash[:notice] %>
+</div>
 <p>
-  <strong>Title:</strong>
-  リーダブルコード
+  <strong>
+    Title:
+  </strong>
+　<%= @book.title %>
 </p>
 <p>
-  <strong>Body:</strong>
-  より良いコードを書くためのシンプルで実践的なテクニック
+  <strong>
+    Body:
+  </strong>
+  <%= @book.body %>
 </p>
-<a href="/books/1/edit">Edit</a>
+<%= link_to 'Edit', edit_book_path(@book) %>
   |
 <a href="/books">Back</a>
